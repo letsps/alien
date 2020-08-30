@@ -1,6 +1,8 @@
 import pygame
 from pygame.sprite import Sprite
 
+import game_function as gf
+
 
 class Bullet(Sprite):
 
@@ -17,9 +19,12 @@ class Bullet(Sprite):
         self.color = ai_setting.bullet_color
         self.speed_factor = ai_setting.bullet_speed_factor
 
+    # def update(self,ai_setting, screen, ship, bullets):
     def update(self):
+        # if ai_setting.down_bullet:
         self.y -= self.speed_factor
         self.rect.y = self.y
+        # gf.fire_bullet(ai_setting, screen, ship, bullets)
 
     def draw_bullet(self):
         pygame.draw.rect(self.screen, self.color, self.rect)
